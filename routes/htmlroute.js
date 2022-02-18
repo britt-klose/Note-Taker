@@ -1,4 +1,5 @@
-const path = require ('path')
+const path = require ('path');
+//const app = require('.');
 const html = require ('express').Router();
 
 // GET Route for feedback page
@@ -9,8 +10,10 @@ html.get('/notes', (req, res) =>
 
 // Wildcard route to direct users to a homepage
 //GET * should return index.html file
-html.get('*', (req, res) =>
+//get/ vs get *
+html.get('/', (req, res) =>{
+  console.log('testing spot');
   res.sendFile(path.join(__dirname, '../public/index.html'))
-);
+});
 
-module.exports =html
+module.exports = html
